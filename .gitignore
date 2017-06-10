@@ -4,3 +4,4 @@ lib
 css
 *.min.js
 Thumbs.db
+npm-debug.log
