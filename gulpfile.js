@@ -87,9 +87,9 @@ gulp.task('browserSync', function() {
 // Configure the browserSync task
 gulp.task('production', function() {
     browserSync.init({
+        port: process.env.PORT,
         server: {
             baseDir: '',
-            port: process.env.PORT,
         },
     })
 })
