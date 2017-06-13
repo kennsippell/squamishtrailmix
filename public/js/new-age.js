@@ -145,7 +145,7 @@
   $('.buynow').hide();
 
   function calculatePrice(cost) {
-    return (cost * config.priceMultiplier + config.priceAddition);
+    return Math.ceil((cost * config.priceMultiplier + config.priceAddition) * 10) / 10;
   }
 })(jQuery, window.configuration); // End of use strict
 

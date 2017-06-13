@@ -109,7 +109,7 @@ function getPriceFromProducts(products, source) {
   const productNames = Object.keys(products);
   return productNames.map(p => {
     const units = source[p] || 0;
-    const unitPrice = products[p].price * configuration.priceMultiplier + configuration.priceAddition;
+    const unitPrice = Math.ceil((products[p].price * configuration.priceMultiplier + configuration.priceAddition) * 10) / 10;
     
     return units * unitPrice;
   }).reduce((a, b) => a + b) * configuration.gst;
