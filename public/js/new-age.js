@@ -2,6 +2,7 @@
   "use strict"; // Start of use strict
 
   var productCost = 0;
+  var productPounds = 0;
   var products = {
     'Almonds': {
       image: 'almonds.jpg',
@@ -12,7 +13,7 @@
     'Cashews': {
       image: 'cashews.jpg',
       description: 'Unsalted halves and pieces. Roasted in Victoria, BC.',
-      price: 8.27,
+      price: 8.99,
       amount: 0,
     },
     'Walnuts': {
@@ -99,11 +100,6 @@
     if (index % 3 === 2 || index === productNames.length - 1) html += '</div><a class="btn btn-success buynow" />';
   }
   $('#products').html(html);
-  $('#spinner').spinner({
-    step: 1,
-    min: 0,
-    max: 100,
-  });
 
   html = '<tr><th></th><th class=me>Squamish Trail Mix</th><th>' + prices.Competitors.join('</th><th>') + '</th></tr>';
   for (var index in productNames) {
@@ -145,7 +141,7 @@
     // image: '/square-image.png',
     token: function(token) {
       $('input#stripeToken').val(token.id);
-      $('form').submit();
+      $('form#stripeForm').submit();
     }
   });
 
@@ -164,9 +160,10 @@
     var product = products[productName];
     if (product.amount + delta >= 0) {
       productCost += calculatePrice(product.price) * delta;
+      productPounds += delta;
       product.amount += delta;
       $('.amount[data-product="' + productName + '"]').text(product.amount + ' lb');
-      $('.buynow').html('<i class="fa fa-shopping-cart"></i>Buy now for $' + productCost.toFixed(2) + ' + GST');
+      $('.buynow').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
     }
 
     if (productCost > 0 && productCost.toFixed(2) !== "0.00") { $('.buynow').show("fast"); }
@@ -176,5 +173,5 @@
 })(jQuery); // End of use strict
 
 function calculatePrice(cost) {
-  return (cost * 1.022 + 1.00);
+  return (cost * 1.022 + 0.60);
 }
