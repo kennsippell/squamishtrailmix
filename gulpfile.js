@@ -51,7 +51,7 @@ gulp.task('minify-js', function() {
 
 // Copy lib libraries from /node_modules into /lib
 gulp.task('copy', function() {
-    gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
+    gulp.src(['node_modules/bootstrap/dist/*/*', '!*/npm.js', '!*/bootstrap-theme.*', '!*/*.map'])
         .pipe(gulp.dest('public/lib/bootstrap'))
 
     gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
@@ -62,8 +62,8 @@ gulp.task('copy', function() {
 
 
     gulp.src([
-            'node_modules/font-awesome/**',
-            '!node_modules/font-awesome/**/*.map',
+            'node_modules/font-awesome/*',
+            '!node_modules/font-awesome/*/*.map',
             '!node_modules/font-awesome/.npmignore',
             '!node_modules/font-awesome/*.txt',
             '!node_modules/font-awesome/*.md',
@@ -88,6 +88,6 @@ gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() 
     gulp.watch('public/css/*.css', ['minify-css']);
     gulp.watch('public/js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('public/js/**/*.js', browserSync.reload);
+    gulp.watch('public/js/*/*.js', browserSync.reload);
     gulp.watch('views/*.pug', browserSync.reload);
 });
