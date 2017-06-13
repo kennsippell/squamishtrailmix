@@ -169,8 +169,8 @@
       $('.buynow').html('<i class="fa fa-shopping-cart"></i>Buy now for $' + productCost.toFixed(2) + ' + GST');
     }
 
-    if (productCost > 0 && productCost.toFixed(2) !== "0.00") { $('.buynow').show(); }
-    else { $('.buynow').hide(); }
+    if (productCost > 0 && productCost.toFixed(2) !== "0.00") { $('.buynow').show("fast"); }
+    else { $('.buynow').hide("fast"); }
   }
   $('.buynow').hide();
 })(jQuery); // End of use strict
