@@ -105,6 +105,12 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
+IF EXIST "%DEPLOYMENT_TARGET%\gulpfile.js" (
+ pushd "%DEPLOYMENT_TARGET%"
+ call .\node_modules\.bin\gulp
+ popd
+)
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
@@ -130,12 +136,6 @@ exit /b 1
 
 :end
 endlocal
-
-IF EXIST "gulpfile.js" (
- pushd "%DEPLOYMENT_TARGET%"
- call .\node_modules\.bin\gulp
- popd
-)
 
 echo Finished successfully.
 
