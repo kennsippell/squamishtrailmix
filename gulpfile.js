@@ -57,10 +57,6 @@ gulp.task('copy', function() {
     gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
         .pipe(gulp.dest('public/lib/jquery'))
 
-    gulp.src(['node_modules/simple-line-icons/*/*'])
-        .pipe(gulp.dest('public/lib/simple-line-icons'))
-
-
     gulp.src([
             'node_modules/font-awesome/**',
             '!node_modules/font-awesome/**/*.map',

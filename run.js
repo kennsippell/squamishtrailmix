@@ -4,7 +4,7 @@ const dne = 10000;
 const configuration = {
   keyPublishable: process.env.PUBLISHABLE_KEY || 'pk_test_DZkclA7Lk0U2szChf0u7RV8U',
   keySecret: process.env.SECRET_KEY || 'sk_test_JvHrW5FfszUh49X5eMW5ZKU5',
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 80,
   dne,
   priceMultiplier: 1.022,
   priceAddition: 0.60,
@@ -56,6 +56,7 @@ const configuration = {
     'Figs': [ dne, dne, 14.53, dne ],
     'Apricots': [ 12.86, 10.41, dne, 8.29 ],
   },
+  forceHttps: process.env.FORCE_HTTPS || false,
 };
 
 const express = require('express');
@@ -68,6 +69,14 @@ const stripe = require("stripe")(configuration.keySecret);
 const router = express.Router();
 
 app.use(express.static('public'));
+
+if (configuration.forceHttps) {
+  app.all('*', function(req, res) {
+    console.log("HTTP: " + req.url);
+    return res.redirect("https://" + req.headers["host"] + req.url);
+  });
+}
+
 app.get('/', function(req, res) {
     res.render('index', { configuration: JSON.stringify(configuration) });
 });
@@ -87,10 +96,14 @@ app.post("/charge", (req, res) => {
       customer: customer.id,
       metadata: req.body,
     }))
-  .then(charge => res.render('charge'));
+  .then(charge => {
+    res.status(200);
+    res.send({ });
+  });
 });
 
 app.listen(configuration.port);
+console.log(`Started on port: ${configuration.port}`);
 
 function getPriceFromProducts(products, source) {
   const productNames = Object.keys(products);
