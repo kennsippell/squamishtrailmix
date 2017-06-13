@@ -1,57 +1,12 @@
-(function($) {
+(function($, config) {
   "use strict"; // Start of use strict
+
+  var products = config.products;
+  var prices = config.prices;
+  var dne = config.dne;
 
   var productCost = 0;
   var productPounds = 0;
-  var products = {
-    'Almonds': {
-      image: 'almonds.jpg',
-      description: 'Unsalted classics. Roasted in Victora, BC.',
-      price: 5.73,
-      amount: 0,
-    },
-    'Cashews': {
-      image: 'cashews.jpg',
-      description: 'Unsalted halves and pieces. Roasted in Victoria, BC.',
-      price: 8.99,
-      amount: 0,
-    },
-    'Walnuts': {
-      image: 'walnuts.jpg',
-      description: 'Unsalted halves and pieces. Roasted in Victoria, BC.',
-      price: 6.11,
-      amount: 0,
-    },
-    'Raisins': {
-      image: 'raisins.jpg',
-      description: 'Certified Organic, Thompsons, oil free.',
-      price: 2.86,
-      amount: 0,
-    },
-    'Figs': {
-      image: 'figs.jpg',
-      description: 'Certified Organic, Turkish.',
-      price: 7.27,
-      amount: 0,
-    },
-    'Apricots': {
-      image: 'apricots.jpg',
-      description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
-      price: 7.66,
-      amount: 0,
-    }
-  };
-
-  var dne = 10000;
-  var prices = {
-    'Competitors': [ 'Independent', 'Save On Foods', 'Nesters', 'Walmart' ],
-    'Almonds': [ 13.06, 13.59, 15.86, 19.19 ],
-    'Cashews': [ 11.35, 13.59, 17.50, 11.57 ],
-    'Walnuts': [ 15.90, 10.41, 15.95, 9.09 ],
-    'Raisins': [ 4.60, 9.05, 6.32, dne ],
-    'Figs': [ dne, dne, 14.53, dne ],
-    'Apricots': [ 12.86, 10.41, dne, 8.29 ],
-  };
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
   $(document).on('click', 'a.page-scroll', function(event) {
@@ -87,7 +42,7 @@
     var product = products[productName];
     if (index % 3 === 0) html += '<div class="row">';
     html += 
-    '<div class="col-md-4">' + 
+    '<div class="col-sm-4">' + 
       '<div class="feature-item">' + 
         '<img src="/img/products/' + product.image + '" style="width: 100%" />' + 
         '<h3>' + productName + '</h3>' + 
@@ -120,6 +75,8 @@
         '</td>';
     });
 
+    $('form#stripeForm').append('<input name="' + productName + '" id="' + productName + '" type="hidden" value="0" />');
+
     html += '<tr><td>' + productName + '</td>' + price.join('') + '</tr>';
   }
   $('#priceTable').html(html);
@@ -134,14 +91,28 @@
   });
   
   var handler = StripeCheckout.configure({
-    key: 'pk_test_DZkclA7Lk0U2szChf0u7RV8U',
+    key: config.keyPublishable,
     locale: 'auto',
+    currency: 'CAD',
     name: 'Squamish Trail Mix',
     description: 'Trail Mix',
     // image: '/square-image.png',
     token: function(token) {
+      $('input#stripeEmail').val(token.email);
       $('input#stripeToken').val(token.id);
-      $('form#stripeForm').submit();
+
+      $.ajax({
+        type: 'POST',
+        url: '/charge',
+        dataType: 'json',
+        data: $('form#stripeForm').serialize(),
+        success: function(data) {
+          $("#onOrderSuccess").modal('show');
+        },
+        error: function() {
+          $("#onOrderFail").modal('show');
+        },
+      })
     }
   });
 
@@ -150,7 +121,8 @@
     buyNowButtons[i].addEventListener("click", function() {
       if (productCost > 0) {
         handler.open({
-          amount: (productCost * 100 * 1.05).toFixed(0),
+          amount: (productCost * 100 * config.gst).toFixed(0),
+          currency: 'cad',
         });
       }
     });
@@ -162,6 +134,7 @@
       productCost += calculatePrice(product.price) * delta;
       productPounds += delta;
       product.amount += delta;
+      $('input#' + productName).val(product.amount);
       $('.amount[data-product="' + productName + '"]').text(product.amount + ' lb');
       $('.buynow').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
     }
@@ -170,8 +143,15 @@
     else { $('.buynow').hide("fast"); }
   }
   $('.buynow').hide();
-})(jQuery); // End of use strict
 
-function calculatePrice(cost) {
-  return (cost * 1.022 + 0.60);
-}
+  function calculatePrice(cost) {
+    return (cost * config.priceMultiplier + config.priceAddition);
+  }
+})(jQuery, window.configuration); // End of use strict
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-100903847-1', 'auto');
+ga('send', 'pageview');

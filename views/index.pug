@@ -44,26 +44,26 @@ html(lang='en')
               p.text-muted Who can afford to eat in Squamish, let alone buy a house?
               hr
         .row
-          .col-md-offset-4.col-md-8
+          .col-sm-offset-4.col-sm-8
             .container-fluid
               .row
-                .col-md-6
+                .col-sm-6
                   .feature-item
                     i.fa.fa-usd(aria-hidden='true')
                     h3 Dirt Cheap
                     p.text-muted See how our prices compare with the grocers in town.
-                .col-md-6
+                .col-sm-6
                   .feature-item
                     i.fa.fa-spoon
                     h3 Quality Stuff
                     p.text-muted Locally roasted nuts. Certified organic fruits.
               .row
-                .col-md-6
+                .col-sm-6
                   .feature-item
                     i.fa.fa-list-ol(aria-hidden='true')
                     h3 Limited Selection
                     p.text-muted We operate out of our home. Just room for six items!
-                .col-md-6
+                .col-sm-6
                   .feature-item
                     i.fa.fa-child(aria-hidden='true')
                     h3 Only in Squamish
@@ -72,17 +72,17 @@ html(lang='en')
     section#order.order.bg-secondary.text-center
       .container
         .row
-          .col-md-10.col-md-offset-1
+          .col-sm-10.col-sm-offset-1
             h2.section-heading Place an Order
             #products.container-fluid
 
     section#price.price.bg-primary.text-center
       .container
         .row
-          .col-md-10.col-md-offset-1
+          .col-sm-10.col-sm-offset-1
             h2.section-heading Best price in Squamish
             p.text-muted
-              | This table compares the price of our locally roasted nuts and organic fruit against the cheapest (not organic) available similar product at these popular Squamish grocers. Prices are per pound as of 6/10/2017.
+              | This table compares the price of our locally roasted nuts and organic fruit against the cheapest (not organic) available similar product at popular Squamish grocers. Prices are per pound as of 6/10/2017.
             table#priceTable.table
 
     section#contact.contact.bg-secondary
@@ -102,19 +102,44 @@ html(lang='en')
     footer
       .container
         p © 2017 0988671 B.C., Ltd. All Rights Reserved.
-    
+
+    form#stripeForm(action='/charge', method='post')
+      input#stripeEmail(type='hidden', name='stripeEmail')
+      input#stripeToken(type='hidden', name='stripeToken')
+
+    #onOrderSuccess.modal.fade(tabindex='-1', role='dialog', aria-labelledby='onOrderSuccessLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#onOrderSuccessLabel.modal-title Huge Success!
+          .modal-body
+            .row
+              .col-sm-4.text-center
+                i.fa.fa-check.success
+              .col-sm-8 We have received your order! We'll send an email with detailed instructions when your order is ready for pickup in Garibaldi Highlands.
+          .modal-footer
+            button.btn.btn-default(data-dismiss='modal') Okay!
+
+    #onOrderFail.modal.fade(tabindex='-1', role='dialog', aria-labelledby='onOrderFailLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#onOrderSuccessLabel.modal-title Fail
+          .modal-body
+            .row
+              .col-sm-4.text-center
+                i.fa.fa-exclamation-triangle.text-danger
+              .col-sm-8 Something went wrong when processing your order. Please contact us and we can help you work around this problem.
+          .modal-footer
+            button.btn.btn-default(data-dismiss='modal') Done
+
+    script window.configuration=!{configuration};
     script(src='https://checkout.stripe.com/checkout.js')
     script(src='lib/jquery/jquery.min.js')
     script(src='lib/bootstrap/js/bootstrap.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
     script(src='js/new-age.js')
-    
-    script.
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-100903847-1', 'auto');
-      ga('send', 'pageview');
-    form#stripeForm
-      input#stripeToken(type='hidden')
