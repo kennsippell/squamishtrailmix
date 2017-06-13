@@ -27,7 +27,7 @@
     "url": "https://github.com/kennsippell/squamishtrailmix.git"
   },
   "scripts": {
-    "web": "gulp production",
+    "start": "gulp production",
     "heroku-postbuild": "gulp"
   }
 }
