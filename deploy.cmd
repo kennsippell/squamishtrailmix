@@ -1,3 +1,4 @@
+npm --version
 IF EXIST "gulpfile.js" (
  pushd "%DEPLOYMENT_TARGET%"
  call .\node_modules\.bin\gulp
