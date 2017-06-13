@@ -4,7 +4,7 @@ const dne = 10000;
 const configuration = {
   keyPublishable: process.env.PUBLISHABLE_KEY || 'pk_test_DZkclA7Lk0U2szChf0u7RV8U',
   keySecret: process.env.SECRET_KEY || 'sk_test_JvHrW5FfszUh49X5eMW5ZKU5',
-  port: process.env.PORT || 80,
+  port: process.env.PORT || 1111,
   dne,
   priceMultiplier: 1.022,
   priceAddition: 0.60,
