@@ -56,7 +56,7 @@ const configuration = {
     'Figs': [ dne, dne, 14.53, dne ],
     'Apricots': [ 12.86, 10.41, dne, 8.29 ],
   },
-  forceHttps: process.env.FORCE_HTTPS || false,
+  forceHttps: process.env.FORCE_HTTPS || true,
 };
 
 const express = require('express');
@@ -72,8 +72,9 @@ app.use(express.static('public'));
 
 if (configuration.forceHttps) {
   app.all('*', function(req, res) {
-    console.log("HTTP: " + req.url);
-    return res.redirect("https://" + req.headers["host"] + req.url);
+    if (!req.connection.encrypted) {
+      return res.redirect("https://" + req.headers["host"] + req.url);
+    }
   });
 }
 
