@@ -223,7 +223,7 @@ section.price {
     }
 }
 
-section.order {
+section.about {
     .section-heading {
         h2 {
             margin-top: 0;
@@ -233,29 +233,21 @@ section.order {
         }
         margin-bottom: 100px;
     }
-    .device-container,
     .feature-item {
         max-width: 300px;
         margin: 0 auto;
-    }
-    .device-container {
-        margin-bottom: 100px;
-        @media(min-width: 992px) {
-            margin-bottom: 0;
-        }
-    }
-    .feature-item {
-        text-align: center;
+      text-align: center;
         margin-bottom: 100px;
         h3 {
             font-size: 30px;
         }
         i {
-            font-size: 80px;
-              background: -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary);
-              background: linear-gradient(to left, @theme-secondary , @theme-tertiary);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
+          font-size: 80px;
+          background: white;
+        //   background: -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary);
+        //   background: linear-gradient(to left, @theme-secondary , @theme-tertiary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
     }
     @media(min-width: 992px) {
@@ -263,6 +255,32 @@ section.order {
         .feature-item {
             max-width: none;
         }
+    }
+}
+
+section.order {
+    .feature-item {
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 50px;
+        h3 {
+            font-size: 30px;
+        }
+    }
+
+    .buynow {
+        margin: 0 0 50px 0;
+        padding: 15px 30px;
+
+        i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+    }
+
+    .amount {
+        margin: 0 10px;
     }
 }
 
@@ -308,7 +326,7 @@ section.contact {
         }
     }
     ul.list-social {
-        margin-bottom: 0;
+        margin-bottom: 30px;
         li {
             a {
                 display: block;
@@ -332,14 +350,6 @@ section.contact {
                     background-color: @brand-facebook;
                     &:hover {
                         background-color: darken(@brand-facebook, 5%);
-                    }
-                }
-            }
-            &.social-google-plus {
-                a {
-                    background-color: @brand-google-plus;
-                    &:hover {
-                        background-color: darken(@brand-google-plus, 5%);
                     }
                 }
             }
@@ -441,4 +451,16 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: @gray-darker;
+}
+
+#priceTable .best {
+    background-color: #69960E;
+}
+
+#priceTable th { 
+    text-align: center;
+}
+
+#priceTable .me {
+    font-size: 1.3em;
 }
