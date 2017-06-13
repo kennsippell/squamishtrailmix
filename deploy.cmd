@@ -130,11 +130,12 @@ exit /b 1
 
 :end
 endlocal
-echo Finished successfully.
 
 IF EXIST "gulpfile.js" (
  pushd "%DEPLOYMENT_TARGET%"
  call .\node_modules\.bin\gulp
- IF !ERRORLEVEL! NEQ 0 goto error
  popd
 )
+
+echo Finished successfully.
+
