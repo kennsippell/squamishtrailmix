@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="lib/device-mockups/device-mockups.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Theme CSS -->
     <link href="css/new-age.min.css" rel="stylesheet">
@@ -53,10 +52,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a class="btn buynow"></a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#order">Order</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#price">Price</a>
+                        <a class="page-scroll" href="#price">Pricing</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -66,53 +68,33 @@
         </div>
     </nav>
 
-    <!--<header>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <div class="header-content">
-                        <div class="header-content-inner">
-                            <h1>Dirt-cheap trail mix ingredients</h1>
-                            <a href="#order" class="btn btn-outline btn-xl page-scroll">Place an Order</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                </div>
-            </div>
-        </div>
-    </header>-->
-
-    <section id="about" class="order">
+    <section id="about" class="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-heading">
-                        <h2>Quality dirt-cheap trail mix ingredients</h2>
-                        <p class="text-muted">Who can afford to eat in Squamish, let alone buy a house?</p>
+                        <h2>Awesome nuts and dried fruit for dirt cheap!</h2>
+                        <p class="text-muted">Who can afford to eat in Squamish anymore? (Let alone buy a house)</p>
                         <hr>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <!-- Not sure what to put here -->
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-offset-4 col-md-8">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="feature-item">
                                     <i class="fa fa-usd" aria-hidden="true"></i>
                                     <h3>Dirt Cheap</h3>
-                                    <p class="text-muted">See the chart below to see how our prices compare with the grocers in town!</p>
+                                    <p class="text-muted">See how <a class="page-scroll" href='#price'>our prices</a> compare with the grocers in town.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="feature-item">
                                     <i class="fa fa-spoon"></i>
                                     <h3>Quality Stuff</h3>
-                                    <p class="text-muted">We sell products with single ingredients. Wholesaled within BC.</p>
+                                    <p class="text-muted">Locally roasted nuts. Certified organic fruits.</p>
                                 </div>
                             </div>
                         </div>
@@ -121,14 +103,14 @@
                                 <div class="feature-item">
                                     <i class="fa fa-list-ol" aria-hidden="true"></i>
                                     <h3>Limited Selection</h3>
-                                    <p class="text-muted">For now, we only have room in our house for six items at a time!</p>
+                                    <p class="text-muted">We operate out of our home. Just room for six items!</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="feature-item">
                                     <i class="fa fa-child" aria-hidden="true"></i>
                                     <h3>Only in Squamish</h3>
-                                    <p class="text-muted">Pick-up locally in the Garibaldi Lowlands near Sushi Sen.</p>
+                                    <p class="text-muted">Pick-up at the Garibaldi Lowlands near Sushi Sen.</p>
                                 </div>
                             </div>
                         </div>
@@ -153,65 +135,43 @@
     <section id="price" class="price bg-primary text-center"> 
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2 class="section-heading">Hands down best price in Squamish</h2>
+                <div class="col-md-10 col-md-offset-1">
+                    <h2 class="section-heading">Best price in Squamish</h2>
+                    <p class='text-muted'>Great prices for organic fruits and locally roasted nuts! All prices are per pound as of 6/10/2017.</p>
                     <table id='priceTable' class='table'>
-                        <tr>
-                            <th></th>
-                            <th>Squamish Trail Mix</th>
-                            <th>Craig's Independant Grocer</th>
-                            <th>Save On Foods</th>
-                            <th>Nester's Marketplace</th>
-                            <th>Walmart</th>
-                        </tr>
-                        <tr>
-                            <td>Almonds</td>
-                            <td>$1.25</td>
-                            <td>$2.25</td>
-                            <td>$2.25</td>
-                            <td>$2.25</td>
-                            <td>$2.25</td>
-                        </tr>
                     </table>
-
-                    <p class="text-muted">All prices are per pound as of 6/10/2017.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--<section class="cta">
-        <div class="cta-content">
-            <div class="container">
-                <h2>What am I going to put here?</h2>
-                <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
-            </div>
-        </div>
-        <div class="overlay"></div>
-    </section>-->
-
     <section id="contact" class="contact bg-secondary">
         <div class="container">
             <h2>Let me know what you think!</h2>
-            <p>I just started this up, so let me know what you think and what bulk items you would like to see here</p>
             <ul class="list-inline list-social">
                 <li class="social-facebook">
-                    <a href="mailto:squamishtrailmix@gmail.com"><i class="fa fa-envelope"></i></a>
+                    <a href="mailto:0988671ltd@gmail.com"><i class="fa fa-envelope"></i></a>
                 </li>
                 <li class="social-twitter">
                     <a href="https://twitter.com/SquamishMix"><i class="fa fa-twitter"></i></a>
                 </li>
+                <li class="social-facebook">
+                    <a href="https://www.facebook.com/Squamish-Trail-Mix-1802265339800433"><i class="fa fa-facebook"></i></a>
+                </li>
             </ul>
+
+            <iframe src="http://www.strawpoll.me/embed_1/13173698" style="width:680px;height:650px;border:0;">Loading poll...</iframe>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2016 0988671 B.C., Ltd. All Rights Reserved.</p>
+            <p>&copy; 2017 0988671 B.C., Ltd. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- jQuery -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -224,6 +184,15 @@
     <!-- Theme JavaScript -->
     <script src="js/new-age.js"></script>
 
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100903847-1', 'auto');
+    ga('send', 'pageview');
+    </script>
 </body>
 
 </html>
