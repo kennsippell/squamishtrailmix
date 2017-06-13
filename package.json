@@ -22,7 +22,6 @@
     "gulp-uglify": "^1.5.4",
     "jquery": "^1.11.3",
     "pug": "^2.0.0-rc.2",
-    "simple-line-icons": "^2.3.2",
     "stripe": "^4.22.0"
   },
   "repository": {
