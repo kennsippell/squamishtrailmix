@@ -71,10 +71,12 @@ const router = express.Router();
 app.use(express.static('public'));
 
 if (configuration.forceHttps) {
-  app.all('*', function(req, res) {
-    if (!req.connection.encrypted) {
-      return res.redirect("https://" + req.headers["host"] + req.url);
+  app.use((req, res, next) => {
+    if (!req.get('x-arr-ssl')) {
+      return res.redirect("https://" + req.get('host') + req.url);
     }
+
+    next();
   });
 }
 
