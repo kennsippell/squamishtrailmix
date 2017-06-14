@@ -28,10 +28,16 @@ const configuration = {
       price: 6.11,
       amount: 0,
     },
-    'Raisins': {
-      image: 'raisins.jpg',
-      description: 'Certified Organic, Thompsons, oil free.',
-      price: 2.86,
+    'Apricots': {
+      image: 'apricots.jpg',
+      description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
+      price: 7.66,
+      amount: 0,
+    },
+    'Dates': {
+      image: 'dates.jpg',
+      description: 'Certified Organic, Deglet, Pitted, Algerian.',
+      price: 6.49,
       amount: 0,
     },
     'Figs': {
@@ -40,12 +46,12 @@ const configuration = {
       price: 7.27,
       amount: 0,
     },
-    'Apricots': {
-      image: 'apricots.jpg',
-      description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
-      price: 7.66,
+    'Raisins': {
+      image: 'raisins.jpg',
+      description: 'Certified Organic, Thompsons, oil free.',
+      price: 2.86,
       amount: 0,
-    }
+    },
   },
   prices: {
     'Competitors': [ 'Independent', 'Save On Foods', 'Nesters', 'Walmart' ],
@@ -55,6 +61,7 @@ const configuration = {
     'Raisins': [ 4.60, 9.05, 6.32, dne ],
     'Figs': [ dne, dne, 14.53, dne ],
     'Apricots': [ 12.86, 10.41, dne, 8.29 ],
+    'Dates': [ dne, dne, dne, dne ],
   },
   forceHttps: process.env.FORCE_HTTPS || false,
 };

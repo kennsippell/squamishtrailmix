@@ -33,7 +33,7 @@
     offset: {
       top: 50
     }
-  })
+  });
 
   var productNames = Object.keys(products);
   var html = '';
