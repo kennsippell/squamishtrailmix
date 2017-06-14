@@ -56,7 +56,7 @@ const configuration = {
     'Figs': [ dne, dne, 14.53, dne ],
     'Apricots': [ 12.86, 10.41, dne, 8.29 ],
   },
-  forceHttps: process.env.FORCE_HTTPS || true,
+  forceHttps: process.env.FORCE_HTTPS || false,
 };
 
 const express = require('express');
