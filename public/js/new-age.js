@@ -1,6 +1,5 @@
-(function($, config) {
-  "use strict"; // Start of use strict
-
+(function($, config, keyPublishable) {
+  "use strict";
   var products = config.products;
   var prices = config.prices;
   var dne = config.dne;
@@ -91,7 +90,7 @@
   });
   
   var handler = StripeCheckout.configure({
-    key: config.keyPublishable,
+    key: keyPublishable,
     locale: 'auto',
     currency: 'CAD',
     name: 'Squamish Trail Mix',
@@ -147,7 +146,7 @@
   function calculatePrice(cost) {
     return Math.ceil((cost * config.priceMultiplier + config.priceAddition) * 10) / 10;
   }
-})(jQuery, window.configuration); // End of use strict
+})(jQuery, window.productLine, window.keyPublishable); // End of use strict
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
