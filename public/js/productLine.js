@@ -3,8 +3,8 @@
 const dne = 10000;
 const productLine = {
   dne,
-  priceMultiplier: 1.022,
-  priceAddition: 1.00,
+  priceMultiplier: 1.029,
+  priceAddition: 0.70,
   gst: 1.05,
   products: {
     'Almonds': {
@@ -30,18 +30,21 @@ const productLine = {
       description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
       price: 7.66,
       amount: 0,
+      isOrganic: true,
     },
     'Figs': {
       image: 'figs.jpg',
       description: 'Certified Organic, Turkish.',
       price: 7.27,
       amount: 0,
+      isOrganic: true,
     },
     'Raisins': {
       image: 'raisins.jpg',
       description: 'Certified Organic, Thompsons, oil free.',
       price: 2.86,
       amount: 0,
+      isOrganic: true,
     },
   },
   prices: {

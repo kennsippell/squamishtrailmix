@@ -64,13 +64,16 @@
     Array.prototype.push.apply(price, prices[productName])
     var bestCompetitor = Math.min.apply(null, prices[productName]);
     var best = Math.min.apply(null, price);
-    price = price.map(function(x) {
+    
+    price = price.map(function(x, i) {
+      var isOrganic = i === 0 && product.isOrganic;
       if (x === dne) return '<td>-</td>';
 
       return '<td' + 
         (x === best ? ' class="best">' : '>') +
         '$' + x.toFixed(2) + 
-        (x === best && best === myPrice ? ' (' + ((bestCompetitor - best) / bestCompetitor * 100).toFixed(0) + '% less' + ('') + ')' : '')
+        (x === best && best === myPrice ? ' (' + ((bestCompetitor - best) / bestCompetitor * 100).toFixed(0) + '% less' + ')' : '') +
+        (isOrganic ? '*' : '') +
         '</td>';
     });
 
@@ -147,6 +150,10 @@
     return Math.ceil((cost * config.priceMultiplier + config.priceAddition) * 10) / 10;
   }
 })(jQuery, window.productLine, window.keyPublishable); // End of use strict
+
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
