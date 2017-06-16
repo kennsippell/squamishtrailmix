@@ -141,7 +141,8 @@
       product.amount += delta;
       $('input#' + productName).val(product.amount);
       $('.amount[data-product="' + productName + '"]').text('Buy ' + product.amount + ' lb');
-      $('.buynow').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
+      $('.buynow:not(.icononly)').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
+      $('.buynow.icononly').html('<i class="fa fa-shopping-cart"></i>');
     }
 
     if (productCost > 0 && productCost.toFixed(2) !== "0.00") { $('.buynow').show("fast"); }

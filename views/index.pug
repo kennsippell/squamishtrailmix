@@ -4,7 +4,6 @@ html(lang='en')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
 
     title Squamish Trail Mix
     link(href='lib/bootstrap/css/bootstrap.min.css', rel='stylesheet')
@@ -15,32 +14,37 @@ html(lang='en')
     link(href='css/new-age.min.css', rel='stylesheet')
 
   body#page-top
-    nav#mainNav.navbar.navbar-default.navbar-fixed-top
+    nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
             span.sr-only Toggle navigation
-            |  Menu 
-            i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='#page-top') Squamish Trail Mix
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .hidden-sm
+            a.buynow.icononly.navbar-toggle.collapsed(type='button', aria-expanded='false', aria-controls='navbar')
+              i.fa.fa-shopping-cart
+          a.page-scroll.navbar-brand(href='#') Squamish Trail Mix
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
             li
-              a.btn.buynow
+              a.btn.btn-default.buynow.withtext
+          ul.nav.navbar-nav.navbar-right
             li
               a.page-scroll(href='#order') Order
             li
-              a.page-scroll(href='#price') Pricing
+              a.page-scroll(href='#price') Prices
             li
-              a.page-scroll(href='#contact') Contact
+              a.page-scroll(href='#contact') Contact Us
 
     section#about.about.bg-primary
       .container
         .row
           .col-lg-12.text-center
             .section-heading
-              h2 Best price in Squamish for awesome nuts and dried fruit!
-              h3 The Chief's Nuts
+              h2 The Chief's Nuts
+              h3 Best deal in Squamish on nuts and dried fruit
               hr
         .row
           .col-sm-offset-2.col-sm-10.col-md-offset-4.col-md-8
@@ -86,7 +90,7 @@ html(lang='en')
             h2.section-heading Best prices in Squamish
             p.text-muted.text-left
               | This table compares the price of our nuts and organic fruit to the cheapest, non-organic similar products available at popular Squamish grocery stores. Prices are per pound as of 6/10/2017.
-            table#priceTable.table
+            table#priceTable.table.hidden-xs
             p.text-muted.text-left.small
               sup 1
               |  Organic
@@ -108,7 +112,7 @@ html(lang='en')
             a(href='https://www.facebook.com/SquamishMix')
               i.fa.fa-facebook
         p Help us do the right things! Take a minute to complete this survey. 
-        iframe(src='https://docs.google.com/forms/d/e/1FAIpQLScD85eIGNhhGPU2NSUWGO-NAZ64QnrvoqpnrieKquICi6iYlA/viewform?embedded=true',width=760,height=500,frameborder=0,marginheight=0,marginwidth=0) Loading...
+        a.btn.btn-default(src='https://docs.google.com/forms/d/e/1FAIpQLScD85eIGNhhGPU2NSUWGO-NAZ64QnrvoqpnrieKquICi6iYlA/viewform') Take a Survey to Help us Out!
     footer
       .container
         p © 2017 0988671 B.C., Ltd. All Rights Reserved.
