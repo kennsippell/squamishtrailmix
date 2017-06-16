@@ -4,7 +4,7 @@ const dne = 10000;
 const productLine = {
   dne,
   priceMultiplier: 1.029,
-  priceAddition: 0.70,
+  priceAddition: 0.80,
   gst: 1.05,
   products: {
     'Almonds': {

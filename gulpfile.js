@@ -74,12 +74,12 @@ gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
 // Configure the browserSync task
 gulp.task('browserSync', function() {
     browserSync.init(null, {
-        proxy: 'http://localhost:1111',
+        proxy: 'http://localhost:1212',
     })
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
+gulp.task('dev', ['browserSync', 'less', 'copy', 'minify-css', 'minify-js'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('public/css/*.css', ['minify-css']);
     gulp.watch('public/js/*.js', ['minify-js']);

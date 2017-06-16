@@ -73,13 +73,15 @@
         (x === best ? ' class="best">' : '>') +
         '$' + x.toFixed(2) + 
         (x === best && best === myPrice ? ' (' + ((bestCompetitor - best) / bestCompetitor * 100).toFixed(0) + '% less' + ')' : '') +
-        (isOrganic ? '*' : '') +
+        (isOrganic ? '<sup>1</sup>' : '') +
         '</td>';
     });
 
     $('form#stripeForm').append('<input name="' + productName + '" id="' + productName + '" type="hidden" value="0" />');
 
-    html += '<tr><td>' + productName + '</td>' + price.join('') + '</tr>';
+    html += '<tr><td>' + productName +
+      (productName === 'Apricots' ? '<sup>2</sup>' : '') +  
+      '</td>' + price.join('') + '</tr>';
   }
   $('#priceTable').html(html);
 

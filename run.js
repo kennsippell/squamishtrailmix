@@ -5,7 +5,7 @@ const productLine = require('./public/js/productLine.js');
 const configuration = {
   keyPublishable: process.env.PUBLISHABLE_KEY || 'pk_test_DZkclA7Lk0U2szChf0u7RV8U',
   keySecret: process.env.SECRET_KEY || 'sk_test_JvHrW5FfszUh49X5eMW5ZKU5',
-  port: process.env.PORT || 1111,
+  port: process.env.PORT || 1212,
   forceHttps: process.env.FORCE_HTTPS || false,
 };
 
