@@ -56,9 +56,15 @@ p {
   }
   .icononly {
     padding: 6px 6px 6px 12px;
+    display: block;
   }
   .buynow i {
     margin-right: 8px;
+  }
+  @media(min-width: 768px) {
+    .icononly {
+      display: none !important;
+    }
   }
 }
 
