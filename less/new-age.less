@@ -14,7 +14,7 @@ body {
 
 a {
   .transition-all;
-  color: @theme-primary;
+  color: @theme-secondary;
   &:hover,
   &:focus {
     color: darken(@theme-primary, 10%);
@@ -166,13 +166,6 @@ header {
       }
     }
   }
-  .device-container {
-    max-width: 300px;
-    margin: 0 auto 100px;
-    .screen img {
-      border-radius: 3px;
-    }
-  }
   @media (min-width: 768px) {
     min-height: 100%;
     .header-content {
@@ -220,7 +213,7 @@ section.price {
     font-size: 50px;
   }
   #priceTable .best {
-    background-color: #69960E;
+    background-color: @theme-secondary;
   }
 
   #priceTable th { 
@@ -377,6 +370,16 @@ footer {
   background: @theme-primary;
   background: -webkit-linear-gradient(@theme-primary , darken(@theme-primary, 5%));
   background: linear-gradient(@theme-primary , darken(@theme-primary, 5%));
+}
+
+.bg-secondary {
+  background: white;
+}
+
+.bg-tertiary {
+  background: @theme-tertiary;
+  background: -webkit-linear-gradient(@theme-tertiary , darken(@theme-tertiary, 5%));
+  background: linear-gradient(@theme-tertiary , darken(@theme-tertiary, 5%));
 }
 
 .text-primary {
