@@ -42,15 +42,16 @@
     if (index % 3 === 0) html += '<div class="row">';
     html += 
     '<div class="col-sm-4">' + 
+      '<a class="product-plus" data-product="' + productName + '">' +
       '<div class="feature-item">' + 
         '<img src="/img/products/' + product.image + '" style="width: 100%" />' + 
         '<h3>' + productName + '</h3>' + 
         '<p class="text-muted">' + product.description + '</p>' + 
         '<p>$' + calculatePrice(product.price).toFixed(2) + '/lb</p>' + 
         '<a class="btn btn-default product-minus" data-product="' + productName + '"><i class="fa fa-minus"></i></a>' +
-        '<span class="amount" data-product="' + productName + '">0</span>' +
+        '<span class="amount" data-product="' + productName + '">Buy 0 lb</span>' +
         '<a class="btn btn-default product-plus" data-product="' + productName + '"><i class="fa fa-plus"></i></a>' + 
-    '</div></div>';
+    '</div></a></div>';
     if (index % 3 === 2 || index === productNames.length - 1) html += '</div><a class="btn btn-success buynow" />';
   }
   $('#products').html(html);
@@ -139,7 +140,7 @@
       productPounds += delta;
       product.amount += delta;
       $('input#' + productName).val(product.amount);
-      $('.amount[data-product="' + productName + '"]').text(product.amount + ' lb');
+      $('.amount[data-product="' + productName + '"]').text('Buy ' + product.amount + ' lb');
       $('.buynow').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
     }
 
