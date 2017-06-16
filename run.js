@@ -7,6 +7,7 @@ const configuration = {
   keySecret: process.env.SECRET_KEY || 'sk_test_JvHrW5FfszUh49X5eMW5ZKU5',
   port: process.env.PORT || 1212,
   forceHttps: process.env.FORCE_HTTPS || false,
+  forceWww: process.env.FORCE_WWW || false,
 };
 
 const express = require('express');
@@ -20,15 +21,24 @@ const router = express.Router();
 
 app.use(express.static('public'));
 
-if (configuration.forceHttps) {
-  app.use((req, res, next) => {
-    if (!req.get('x-arr-ssl')) {
-      return res.redirect("https://" + req.get('host') + req.url);
-    }
+app.use((req, res, next) => {
+  const desiredHost = req.get('host');
+  let redirect = false;
+  if (configuration.forceWww && (req.subdomains.length !== 1 || req.subdomains[0] !== 'www')) {
+    desiredHost = 'www.' + desiredHost;
+    redirect = true;
+  }
 
-    next();
-  });
-}
+  if (configuration.forceHttps && !req.get('x-arr-ssl')) {
+    redirect = true;
+  }
+
+  if (redirect) {
+    return res.redirect("https://" + desiredHost + req.url);
+  }
+
+  next();
+});
 
 app.get('/', function(req, res) {
     res.render('index', { keyPublishable: configuration.keyPublishable });
