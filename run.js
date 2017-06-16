@@ -22,7 +22,7 @@ const router = express.Router();
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
-  const desiredHost = req.get('host');
+  let desiredHost = req.get('host');
   let redirect = false;
   if (configuration.forceWww && (req.subdomains.length !== 1 || req.subdomains[0] !== 'www')) {
     desiredHost = 'www.' + desiredHost;
