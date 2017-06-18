@@ -105,17 +105,20 @@
     }
   });
 
-  var buyNowButtons = document.getElementsByClassName("buynow");
-  for (var i = 0; i < buyNowButtons.length; i++) {
-    buyNowButtons[i].addEventListener("click", function() {
-      if (productCost > 0) {
-        handler.open({
-          amount: (productCost * 100 * config.gst).toFixed(0),
-          currency: 'cad',
-        });
-      }
-    });
-  }
+  $('.buynow').click(function() {
+    $("#orderDetails").modal('show');
+  });
+  $("#onOrderSuccess").modal('show');
+
+  var collectPaymentButton = document.getElementById("collectPayment");
+  collectPaymentButton.addEventListener("click", function() {
+    if (productCost > 0) {
+      handler.open({
+        amount: (productCost * 100 * config.gst).toFixed(0),
+        currency: 'cad',
+      });
+    }
+  });
 
   function addProductToCost(productName, delta) {
     var product = products[productName];

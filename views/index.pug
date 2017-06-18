@@ -130,10 +130,6 @@ html(lang='en')
       .container
         p © 2017 0988671 B.C., Ltd. All Rights Reserved.
 
-    form#stripeForm(action='/charge', method='post')
-      input#stripeEmail(type='hidden', name='stripeEmail')
-      input#stripeToken(type='hidden', name='stripeToken')
-
     #onOrderSuccess.modal.fade(tabindex='-1', role='dialog', aria-labelledby='onOrderSuccessLabel')
       .modal-dialog(role='document')
         .modal-content
@@ -145,9 +141,9 @@ html(lang='en')
             .row
               .col-sm-4.text-center
                 i.fa.fa-check.success
-              .col-sm-8 We have received your order! We'll send an email with instructions when your order is ready for pickup at 
-                a(target="_blank",href="https://www.facebook.com/fuelandforestcafe/") Fuel and Forest Cafe
-                | .
+              .col-sm-8 We have received your order! We'll send an email with instructions when your order is ready for pickup. If you have a minute, 
+                a(target="_blank",href='https://docs.google.com/forms/d/e/1FAIpQLScD85eIGNhhGPU2NSUWGO-NAZ64QnrvoqpnrieKquICi6iYlA/viewform') take a survey 
+                | to help us improve.
           .modal-footer
             button.btn.btn-default(data-dismiss='modal') Okay!
 
@@ -162,9 +158,36 @@ html(lang='en')
             .row
               .col-sm-4.text-center
                 i.fa.fa-exclamation-triangle.text-danger
-              .col-sm-8 Something went wrong when processing your order. Please contact us and we can help you work around this problem.
+              .col-sm-8 Something went wrong when processing your order. Your card has not been charged. Please contact us and we can help you work around this problem.
           .modal-footer
             button.btn.btn-default(data-dismiss='modal') Done
+
+    #orderDetails.modal.fade(tabindex='-1', role='dialog', aria-labelledby='orderDetailsLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#onOrderSuccessLabel.modal-title Order Details
+          .modal-body
+            .row
+              .col-sm-10.col-sm-offset-1
+                form#stripeForm(action='/charge', method='post')
+                  .form-group
+                    label.desc Which pickup location?
+                    label.radio
+                      input(type='radio',name='pickupLocation',value='chief',checked)
+                      | Chief Campground
+                    label.radio
+                      input(type='radio',name='pickupLocation',value='cafe')
+                      | Fuel and Forest Cafe [
+                      a(target="_blank",href="https://www.google.ca/maps/place/Fuel+%2B+Forest+Cafe/@49.7394994,-123.1373541,16.5z/data=!4m5!3m4!1s0x5486f90c0a5b8603:0x286f2ebc1508c62b!8m2!3d49.7417527!4d-123.1338259?hl=en") map
+                      | ]
+                      
+                    input#stripeEmail(type='hidden', name='stripeEmail')
+                    input#stripeToken(type='hidden', name='stripeToken')
+          .modal-footer
+            button.btn.btn-default#collectPayment(data-dismiss='modal') Next >
 
     script window.keyPublishable='#{keyPublishable}';
     script(src='https://checkout.stripe.com/checkout.js')
