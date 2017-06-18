@@ -35,28 +35,10 @@
   });
 
   var productNames = Object.keys(products);
-  var html = '';
-  for (var index in productNames) {
-    var productName = productNames[index];
-    var product = products[productName];
-    if (index % 3 === 0) html += '<div class="row">';
-    html += 
-    '<div class="col-sm-4">' + 
-      '<a class="product-plus" data-product="' + productName + '">' +
-      '<div class="feature-item">' + 
-        '<img src="/img/products/' + product.image + '" style="width: 100%" />' + 
-        '<h3>' + productName + '</h3>' + 
-        '<p class="text-muted">' + product.description + '</p>' + 
-        '<p>$' + calculatePrice(product.price).toFixed(2) + '/lb</p>' + 
-        '<a class="btn btn-default product-minus" data-product="' + productName + '"><i class="fa fa-minus"></i></a>' +
-        '<span class="amount" data-product="' + productName + '">Buy 0 lb</span>' +
-        '<a class="btn btn-default product-plus" data-product="' + productName + '"><i class="fa fa-plus"></i></a>' + 
-    '</div></a></div>';
-    if (index % 3 === 2 || index === productNames.length - 1) html += '</div><a class="btn btn-success buynow" />';
-  }
-  $('#products').html(html);
+  generateProductGrid(productNames, function(x) { return x.isMix === true; }, '#mixes', 2);
+  generateProductGrid(productNames, function(x) { return x.isMix !== true; }, '#ingredients');
 
-  html = '<tr><th></th><th class=me>Squamish Trail Mix</th><th>' + prices.Competitors.join('</th><th>') + '</th></tr>';
+  var html = '<tr><th></th><th class=me>Squamish Trail Mix</th><th>' + prices.Competitors.join('</th><th>') + '</th></tr>';
   for (var index in productNames) {
     var productName = productNames[index];
     var product = products[productName];
@@ -80,9 +62,11 @@
 
     $('form#stripeForm').append('<input name="' + productName + '" id="' + productName + '" type="hidden" value="0" />');
 
-    html += '<tr><td>' + productName +
-      (productName === 'Apricots' ? '<sup>2</sup>' : '') +  
-      '</td>' + price.join('') + '</tr>';
+    if (bestCompetitor !== Infinity) {
+      html += '<tr><td>' + productName +
+        (productName === 'Apricots' ? '<sup>2</sup>' : '') +  
+        '</td>' + price.join('') + '</tr>';
+    }
   }
   $('#priceTable').html(html);
 
@@ -152,6 +136,33 @@
 
   function calculatePrice(cost) {
     return Math.ceil((cost * config.priceMultiplier + config.priceAddition) * 10) / 10;
+  }
+
+  function generateProductGrid(productNames, filter, selector, initialOffset) {
+    var html = '';
+    var count = 0;
+    for (var index in productNames) {
+      var productName = productNames[index];
+      var product = products[productName];
+      if (!filter(product)) continue;
+
+      if (count % 3 === 0) html += '<div class="row">';
+      html += 
+      '<div class="col-sm-4' + 
+        (initialOffset !== undefined && count === 0 ? ' col-sm-offset-' + initialOffset : '') + '">' + 
+        '<a class="product-plus" data-product="' + productName + '">' +
+        '<div class="feature-item">' + 
+          '<img src="/img/products/' + product.image + '" style="width: 100%" />' + 
+          '<h3>' + (product.name || productName) + '</h3>' + 
+          '<p class="text-muted">' + product.description + '</p>' + 
+          '<p>$' + calculatePrice(product.price).toFixed(2) + '/lb</p>' + 
+          '<a class="btn btn-default product-minus" data-product="' + productName + '"><i class="fa fa-minus"></i></a>' +
+          '<span class="amount" data-product="' + productName + '">Buy 0 lb</span>' +
+          '<a class="btn btn-default product-plus" data-product="' + productName + '"><i class="fa fa-plus"></i></a>' + 
+      '</div></a></div>';
+      count++;
+    }
+    $(selector).html(html);
   }
 })(jQuery, window.productLine, window.keyPublishable); // End of use strict
 

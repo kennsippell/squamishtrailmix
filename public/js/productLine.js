@@ -7,6 +7,21 @@ const productLine = {
   priceAddition: 0.80,
   gst: 1.05,
   products: {
+    'Squamix': {
+      image: 'squamix.jpg',
+      description: '2x: Almonds, Cashews, Walnuts. 1x: Apricots, Figs, Raisins.',
+      price: 8.90,
+      amount: 0,
+      isMix: true,
+    },
+    'ChiefsNuts': {
+      name: "Chief's Nuts",
+      image: 'chiefsnuts.jpg',
+      description: 'Almonds, Cashews, Walnuts',
+      price: 8.90,
+      amount: 0,
+      isMix: true,
+    },
     'Almonds': {
       image: 'almonds.jpg',
       description: 'Unsalted classics. Roasted in Victora, BC.',
