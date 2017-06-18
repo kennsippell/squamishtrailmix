@@ -9,7 +9,7 @@ const productLine = {
   products: {
     'Squamix': {
       image: 'squamix.jpg',
-      description: '2x: Almonds, Cashews, Walnuts. 1x: Apricots, Figs, Raisins.',
+      description: 'Mix of Almonds, Cashews, Walnuts, Apricots, Figs, Raisins.',
       price: 8.90,
       amount: 0,
       isMix: true,
@@ -17,7 +17,7 @@ const productLine = {
     'ChiefsNuts': {
       name: "Chief's Nuts",
       image: 'chiefsnuts.jpg',
-      description: 'Almonds, Cashews, Walnuts',
+      description: 'Mix of Almonds, Cashews, Walnuts.',
       price: 8.90,
       amount: 0,
       isMix: true,

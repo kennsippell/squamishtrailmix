@@ -108,7 +108,6 @@
   $('.buynow').click(function() {
     $("#orderDetails").modal('show');
   });
-  $("#onOrderSuccess").modal('show');
 
   var collectPaymentButton = document.getElementById("collectPayment");
   collectPaymentButton.addEventListener("click", function() {
