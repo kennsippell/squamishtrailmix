@@ -4,7 +4,7 @@ const dne = 10000;
 const productLine = {
   dne,
   priceMultiplier: 1.029,
-  priceAddition: 0.80,
+  priceAddition: 0.30,
   gst: 1.05,
   products: {
     'Squamix': {
