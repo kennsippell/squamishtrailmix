@@ -15,7 +15,7 @@ const productLine = {
       isMix: true,
     },
     'ChiefsNuts': {
-      name: "Chief's Nuts",
+      name: "The Chief's Nuts",
       image: 'chiefsnuts.jpg',
       description: 'Mix of Almonds, Cashews, Walnuts.',
       price: 8.90,
@@ -30,13 +30,13 @@ const productLine = {
     },
     'Cashews': {
       image: 'cashews.jpg',
-      description: 'Unsalted halves and pieces. Roasted in Victoria, BC.',
+      description: 'Unsalted whole. Roasted in Victoria, BC.',
       price: 8.99,
       amount: 0,
     },
     'Walnuts': {
       image: 'walnuts.jpg',
-      description: 'Unsalted halves and pieces. Roasted in Victoria, BC.',
+      description: 'Unsalted halves. Roasted in Victoria, BC.',
       price: 6.11,
       amount: 0,
     },
