@@ -72,11 +72,11 @@ html(lang='en')
                       | Certified organic fruits.
                 .col-sm-6.col-lg-4
                   .feature-item
-                    i.fa.fa-child(aria-hidden='true')
-                    h3 How it works
+                    i.fa.fa-bicycle(aria-hidden='true')
+                    h3 Pick up or delivery
                     p.text-muted
-                      a.page-scroll(href='#order') Place an order online
-                      | , then pick-up at the Chief Campground or in 
+                      a.page-scroll(href='#order') Order online
+                      |. A bike courier can delivery, or you can pick up at the Chief Campground or 
                       a(target="_blank",href="https://www.google.ca/maps/place/Fuel+%2B+Forest+Cafe/@49.7394994,-123.1373541,16.5z/data=!4m5!3m4!1s0x5486f90c0a5b8603:0x286f2ebc1508c62b!8m2!3d49.7417527!4d-123.1338259?hl=en") Garibaldi Highlands
                       | .
 
@@ -107,7 +107,7 @@ html(lang='en')
 
     section#contact.contact.bg-primary
       .container
-        h2 Let us know what you think!
+        h2 Follow us to be involved in future bulk orders!
         ul.list-inline.list-social
           li.social-facebook
             a(href='mailto:squamix@gmail.com')
@@ -162,21 +162,24 @@ html(lang='en')
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-label='Close')
               span(aria-hidden='true') ×
-            h4#onOrderSuccessLabel.modal-title Order Details
+            h4#onOrderSuccessLabel.modal-title How do you wanna get the nuts?
           .modal-body
             .row
               .col-sm-10.col-sm-offset-1
                 form#stripeForm(action='/charge', method='post')
                   .form-group
-                    label.desc Which pickup location?
                     label.radio
                       input(type='radio',name='pickupLocation',value='chief',checked)
-                      | Chief Campground
+                      | Pick up at Chief Campground
                     label.radio
                       input(type='radio',name='pickupLocation',value='cafe')
-                      | Fuel and Forest Cafe [
+                      | Pick up at Fuel and Forest Cafe [
                       a(target="_blank",href="https://www.google.ca/maps/place/Fuel+%2B+Forest+Cafe/@49.7394994,-123.1373541,16.5z/data=!4m5!3m4!1s0x5486f90c0a5b8603:0x286f2ebc1508c62b!8m2!3d49.7417527!4d-123.1338259?hl=en") map
                       | ]
+                    label.radio
+                      input(type='radio',name='pickupLocation',value='delivery')
+                      | Delivery by bike courier (add $5)
+                      input#deliverTo.form-control(type='text',name='address',placeholder='Your address in Squamish for delivery ...', disabled)
                       
                     input#stripeEmail(type='hidden', name='stripeEmail')
                     input#stripeToken(type='hidden', name='stripeToken')

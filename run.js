@@ -70,10 +70,11 @@ console.log(`Started on port: ${configuration.port}`);
 
 function getPriceFromProducts(products, source) {
   const productNames = Object.keys(products);
+  const deliveryFee = source['pickupLocation'] === 'delivery' ? 5 : 0;
   return productNames.map(p => {
     const units = source[p] || 0;
     const unitPrice = Math.ceil((products[p].price * productLine.priceMultiplier + productLine.priceAddition) * 10) / 10;
     
     return units * unitPrice;
-  }).reduce((a, b) => a + b) * productLine.gst;
+  }).reduce((a, b) => a + b) * productLine.gst + deliveryFee;
 }

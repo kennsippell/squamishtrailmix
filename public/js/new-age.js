@@ -6,6 +6,7 @@
 
   var productCost = 0;
   var productPounds = 0;
+  var productDeliveryFee = 0;
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
   $(document).on('click', 'a.page-scroll', function(event) {
@@ -104,15 +105,21 @@
     }
   });
 
+  $(document).on('change', 'input:radio[name="pickupLocation"]', function (event) {
+    var isDelivery = $(this).val() === 'delivery';
+    $('#deliverTo').attr('disabled', isDelivery ? null : 'disabled');
+    productDeliveryFee = (isDelivery ? 500 : 0);
+  });
+
   $('.buynow').click(function() {
     $("#orderDetails").modal('show');
   });
-
+  
   var collectPaymentButton = document.getElementById("collectPayment");
   collectPaymentButton.addEventListener("click", function() {
     if (productCost > 0) {
       handler.open({
-        amount: (productCost * 100 * config.gst).toFixed(0),
+        amount: (productCost * 100 * config.gst + productDeliveryFee).toFixed(0),
         currency: 'cad',
       });
     }
