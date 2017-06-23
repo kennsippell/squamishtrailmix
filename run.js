@@ -62,6 +62,10 @@ app.post("/charge", (req, res) => {
   .then(charge => {
     res.status(200);
     res.send({ });
+  })
+  .catch(charge => {
+    res.status(500);
+    res.send({ });
   });
 });
 
