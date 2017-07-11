@@ -5,7 +5,7 @@
   "homepage": "http://startbootstrap.com/template-overviews/new-age",
   "author": "0988671 B.C., Ltd.",
   "engines": {
-    "node": "6.10.0"
+    "node": "6.11.1"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
