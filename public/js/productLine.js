@@ -22,10 +22,16 @@ const productLine = {
       amount: 0,
       isMix: true,
     },
-    'Almonds': {
+    'Roasted Almonds': {
       image: 'almonds.jpg',
       description: 'Unsalted classics. Roasted in Victora, BC.',
       price: 5.73,
+      amount: 0,
+    },
+    'Raw Almonds': {
+      image: 'almonds.jpg',
+      description: 'Unsalted classics.',
+      price: 4.70,
       amount: 0,
     },
     'Cashews': {
@@ -43,14 +49,21 @@ const productLine = {
     'Apricots': {
       image: 'apricots.jpg',
       description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
-      price: 7.66,
+      price: 7.72,
       amount: 0,
       isOrganic: true,
     },
     'Figs': {
       image: 'figs.jpg',
       description: 'Certified Organic, Turkish.',
-      price: 7.27,
+      price: 7.26,
+      amount: 0,
+      isOrganic: true,
+    },
+    'Cranberries': {
+      image: 'cranberries.jpg',
+      description: 'Certified Organic, cane juice sweetened.',
+      price: 7.16,
       amount: 0,
       isOrganic: true,
     },
