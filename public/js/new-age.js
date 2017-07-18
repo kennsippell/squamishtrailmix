@@ -168,6 +168,7 @@
           '<span class="amount" data-product="' + productName + '">Buy 0 lb</span>' +
           '<a class="btn btn-default product-plus" data-product="' + productName + '"><i class="fa fa-plus"></i></a>' + 
       '</div></a></div>';
+      if (count % 3 === 2) html += '</div>';
       count++;
     }
     $(selector).html(html);
