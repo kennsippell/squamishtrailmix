@@ -62,7 +62,7 @@
         '</td>';
     });
 
-    $('form#stripeForm').append('<input name="' + productName + '" id="' + productName + '" type="hidden" value="0" />');
+    $('form#stripeForm').append('<input name="' + productName + '" id="' + productName.replace(' ', '') + '" type="hidden" value="0" />');
 
     if (bestCompetitor !== Infinity) {
       html += '<tr><td>' + productName + '</td>' + price.join('') + '</tr>';
@@ -131,7 +131,7 @@
       productCost += calculatePrice(product.price) * delta;
       productPounds += delta;
       product.amount += delta;
-      $('input#' + productName).val(product.amount);
+      $('input#' + productName.replace(' ', '')).val(product.amount);
       $('.amount[data-product="' + productName + '"]').text('Buy ' + product.amount + ' lb');
       $('.buynow:not(.icononly)').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
       $('.buynow.icononly').html('<i class="fa fa-shopping-cart"></i>');
