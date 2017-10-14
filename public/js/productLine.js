@@ -40,12 +40,12 @@ const productLine = {
       price: 8.99,
       amount: 0,
     },
-//     'Walnuts': {
-//       image: 'walnuts.jpg',
-//       description: 'Unsalted halves. Roasted in Victoria, BC.',
-//       price: 6.11,
-//       amount: 0,
-//     },
+    'Walnuts': {
+       image: 'walnuts.jpg',
+       description: 'Unsalted halves. Roasted in Victoria, BC.',
+       price: 6.11,
+       amount: 0,
+     },
     'Apricots': {
       image: 'apricots.jpg',
       description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
