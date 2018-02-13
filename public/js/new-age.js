@@ -133,7 +133,7 @@
       product.amount += delta;
       $('input#' + productName.replace(' ', '')).val(product.amount);
       $('.amount[data-product="' + productName + '"]').text('Buy ' + product.amount + ' lb');
-      $('.buynow:not(.icononly)').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
+      $('.buynow:not(.icononly)').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2));
       $('.buynow.icononly').html('<i class="fa fa-shopping-cart"></i>');
     }
 

@@ -5,7 +5,7 @@ const productLine = {
   dne,
   priceMultiplier: 1.029,
   priceAddition: 0.30,
-  gst: 1.05,
+  gst: 1.0,
   products: {
     'Squamix': {
       image: 'squamix.jpg',
@@ -40,12 +40,12 @@ const productLine = {
       price: 8.99,
       amount: 0,
     },
-//     'Walnuts': {
-//       image: 'walnuts.jpg',
-//       description: 'Unsalted halves. Roasted in Victoria, BC.',
-//       price: 6.11,
-//       amount: 0,
-//     },
+    'Walnuts': {
+      image: 'walnuts.jpg',
+      description: 'Unsalted halves. Roasted in Victoria, BC.',
+      price: 4.25,
+      amount: 0,
+    },
     'Apricots': {
       image: 'apricots.jpg',
       description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
