@@ -133,7 +133,7 @@
       product.amount += delta;
       $('input#' + productName.replace(' ', '')).val(product.amount);
       $('.amount[data-product="' + productName + '"]').text('Buy ' + product.amount + ' lb');
-      $('.buynow:not(.icononly)').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2));
+      $('.buynow:not(.icononly)').html('<i class="fa fa-shopping-cart"></i>Buy ' + productPounds + ' lb for $' + productCost.toFixed(2) + ' + GST');
       $('.buynow.icononly').html('<i class="fa fa-shopping-cart"></i>');
     }
 
@@ -162,6 +162,7 @@
         '<div class="feature-item">' + 
           '<img src="/img/products/' + product.image + '" style="width: 100%" />' + 
           '<h3>' + (product.name || productName) + '</h3>' + 
+          '<p class="out-of-stock ' + (!product.outOfStock ? 'hidden' : '') + '">Temporarily Out of Stock</p>' +
           '<p class="text-muted">' + product.description + '</p>' + 
           '<p>$' + calculatePrice(product.price).toFixed(2) + '/lb</p>' + 
           '<a class="btn btn-default product-minus" data-product="' + productName + '"><i class="fa fa-minus"></i></a>' +

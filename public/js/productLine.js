@@ -48,6 +48,7 @@ const productLine = {
     },
     'Apricots': {
       image: 'apricots.jpg',
+      outOfStock: true,
       description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
       price: 7.72,
       amount: 0,
@@ -55,6 +56,7 @@ const productLine = {
     },
     'Figs': {
       image: 'figs.jpg',
+      outOfStock: true,
       description: 'Certified Organic, Turkish.',
       price: 7.26,
       amount: 0,
@@ -62,6 +64,7 @@ const productLine = {
     },
     'Cranberries': {
       image: 'cranberries.jpg',
+      outOfStock: true,
       description: 'Certified Organic, cane juice sweetened.',
       price: 7.16,
       amount: 0,
