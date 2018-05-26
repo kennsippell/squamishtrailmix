@@ -48,7 +48,6 @@ const productLine = {
     },
     'Apricots': {
       image: 'apricots.jpg',
-      outOfStock: true,
       description: 'Certified Organic, Turkish, Pitted, Unsulfured.',
       price: 7.72,
       amount: 0,
