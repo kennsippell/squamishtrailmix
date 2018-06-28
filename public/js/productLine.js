@@ -55,7 +55,6 @@ const productLine = {
     },
     'Figs': {
       image: 'figs.jpg',
-      outOfStock: true,
       description: 'Certified Organic, Turkish.',
       price: 7.26,
       amount: 0,
