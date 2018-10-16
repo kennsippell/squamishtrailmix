@@ -13,6 +13,7 @@ const productLine = {
       price: 8.90,
       amount: 0,
       isMix: true,
+      outOfStock: true,
     },
     'ChiefsNuts': {
       name: "The Chief's Nuts",
@@ -20,6 +21,7 @@ const productLine = {
       description: 'Mix of Almonds, Cashews, Walnuts.',
       price: 8.90,
       amount: 0,
+      outOfStock: true,
       isMix: true,
     },
     'Roasted Almonds': {
@@ -44,6 +46,7 @@ const productLine = {
       image: 'walnuts.jpg',
       description: 'Unsalted halves. Roasted in Victoria, BC.',
       price: 4.25,
+      outOfStock: true,
       amount: 0,
     },
     'Apricots': {
@@ -72,6 +75,7 @@ const productLine = {
       image: 'raisins.jpg',
       description: 'Certified Organic, Thompsons, oil free.',
       price: 2.86,
+      outOfStock: true,
       amount: 0,
       isOrganic: true,
     },
