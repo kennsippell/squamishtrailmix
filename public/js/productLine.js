@@ -34,6 +34,7 @@ const productLine = {
       image: 'almonds.jpg',
       description: 'Unsalted classics.',
       price: 4.70,
+      outOfStock: true,
       amount: 0,
     },
     'Cashews': {
